@@ -6,9 +6,9 @@
 
 ## Usage
 
-Currently, is pretty rudimentar. Clone the code and edit the `GenerateMockCode` function, by instantiating the struct instance you want to mock in the `mainType` variable.
+Currently, is pretty rudimentar. Clone the code and edit the `GenerateMockCode` function, by instantiating the struct instance you want to mock in the `typeToMock` variable.
 
-Also, edit the `Name` attribute in the `repl` struct and write the intended interface name.
+Also, edit the `Name` attribute in the `replacer` struct and write the intended interface name.
 
 For example:
 
