@@ -24,6 +24,13 @@ Will generate an output like that:
 ```go
 // IS3Client generic client
 type IS3Client interface {
+        // AbortMultipartUpload godoc if available
     	AbortMultipartUpload(arg1 context.Context, arg2 *s3.AbortMultipartUploadInput, arg3 ...func(*s3.Options)) (*s3.AbortMultipartUploadOutput, error)
     ........
+```
+
+Then, build and run the code.
+
+```bash
+    $ go run main.go > clients/s3_client.go
 ```
