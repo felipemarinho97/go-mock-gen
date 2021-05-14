@@ -12,6 +12,11 @@ import (
 	"github.com/felipemarinho97/go-mock-gen/funcreader"
 )
 
+// Interface ...
+type Interface struct {
+	Name string
+}
+
 func main() {
 	code := GenerateMockCode()
 
@@ -20,12 +25,12 @@ func main() {
 }
 
 func GenerateMockCode() string {
-	mainType := s3.Client{}
-	repl := struct {
-		Name string
-	}{Name: "S3Client"}
+	typeToMock := s3.Client{}
+	replacer := Interface{
+		Name: "S3Client",
+	}
 
-	t := reflect.TypeOf(&mainType)
+	t := reflect.TypeOf(&typeToMock)
 	var builder strings.Builder
 	var b bytes.Buffer
 
@@ -41,7 +46,7 @@ func GenerateMockCode() string {
 
 	template.Must(template.New("template").
 		Parse(builder.String())).
-		Execute(&b, repl)
+		Execute(&b, replacer)
 
 	return b.String()
 }
