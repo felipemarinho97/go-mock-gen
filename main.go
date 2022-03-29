@@ -102,7 +102,7 @@ func CreateMockedFunctions(t reflect.Type) string {
 // CreateMockedFunction ...
 func CreateMockedFunction(m reflect.Method) string {
 	var b strings.Builder
-	fmt.Fprintf(&b, "// %v mocked funcition\nfunc (m {{.Name}}Mock) %v%v%v {\n",
+	fmt.Fprintf(&b, "// %v mocked function\nfunc (m {{.Name}}Mock) %v%v%v {\n",
 		m.Name, m.Name, GetInputSignature(m), GetOutputSignature(m))
 
 	fmt.Fprintf(&b, "\treturn m.%vMock%v\n}\n", m.Name, GetInputParams(m))
